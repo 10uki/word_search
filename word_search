@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class word_search {
+
+    public static void main(String[] args) {
+        new word_search();
+    }
+
+    public word_search() {
+        String[] keywords = new String[20];
+        int n = 0;
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a maximum of 20 words (separated by spaces): ");
+        String userInput = input.nextLine();
+
+        // Split the user input string into individual words
+        String[] userWords = userInput.split(" ");
+
+        // Store up to 20 words in the keywords array
+        for (int i = 0; i < userWords.length && i < 20; i++) {
+            keywords[i] = userWords[i];
+            n++;
+        }
+
+        System.out.println("User input: " + userInput);
+
+        System.out.println("Enter the search word: ");
+        String inputWord = input.next();
+        input.close();
+
+        int ctr = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (keywords[i].equals(inputWord)) {
+                ctr++;
+            }
+        }
+
+        if (ctr == 0) {
+            System.out.println("Your search word does not exist.");
+        } else {
+            System.out.println("Search is successful and " + inputWord
+                    + " is found " + ctr + " times.");
+        }
+    }
+}
